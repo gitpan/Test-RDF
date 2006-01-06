@@ -1,0 +1,20 @@
+SIGNATURE
+Build.PL
+Changes
+MANIFEST
+META.yml # Will be created by "make dist"
+README
+lib/Test/RDF.pm
+Makefile.PL
+t/0-signature.t
+t/00-load.t
+t/10-rdf_ok-failure.t
+t/10-rdf_ok-success.t
+t/bad/malformed.rdf
+t/bad/not-RDF.rdf
+t/good/dc.nt
+t/good/dc.rdf
+t/good/dc.ttl
+t/pod-coverage.t
+t/pod.t
+SIGNATURE    Added here by Module::Build

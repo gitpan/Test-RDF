@@ -1,0 +1,41 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.44.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 e229d1e75d920a5a3f65b98c046d968cfea9b980 Build.PL
+SHA1 da46b9ed2a7fbced90219c1266de7e562b18fd7d Changes
+SHA1 424d2794098bd1e2acb39351c18471547b684945 MANIFEST
+SHA1 21301ff34d4d916ee2ecd36fec25ff0b2a77a88e META.yml
+SHA1 a359d4072690a21ce63e4b393bdbc19d72b6be5a Makefile.PL
+SHA1 c369f3a8032a9f979e9bb3793b0b92534946554f README
+SHA1 edc211c36cea3ade5406de616c424ed240fcd003 lib/Test/RDF.pm
+SHA1 c8f215c180d51f0bb42bee5cb94bd112d0020d84 t/0-signature.t
+SHA1 bafce760995ba5fbaa01af89fce21e2d5d7074cb t/00-load.t
+SHA1 a1eeb2c5533f74fe182a00bf112d9ffc464a31ab t/10-rdf_ok-failure.t
+SHA1 d0e7320f0bb74c91a25d0567e4dff946086c2a88 t/10-rdf_ok-success.t
+SHA1 6544d5365d1b5faaf3c3bf9c17cba3f6edc83b79 t/bad/malformed.rdf
+SHA1 d56e028cd4b0c2a278033f8877525a7577d0a09c t/bad/not-RDF.rdf
+SHA1 3445a4dc8d368e9776bbefdcc5d504c56f782c78 t/good/dc.nt
+SHA1 d67a3da35dd33768f6df6e52872baf845591106f t/good/dc.rdf
+SHA1 4678080ac57debfeabd0fb38df7aed710fa48da2 t/good/dc.ttl
+SHA1 6da39b48ce64b584e4c3274bff96fc76ff484820 t/pod-coverage.t
+SHA1 0190346d7072d458c8a10a45c19f86db641dcc48 t/pod.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.2 (GNU/Linux)
+
+iD8DBQFDvqSU2SxmMIGsLdwRApzZAJ4s8jIXnuslSXS7rcizsIfUrvO5vQCcD0IR
++fELxUp0BvZpw3LlK07y1NE=
+=yked
+-----END PGP SIGNATURE-----
