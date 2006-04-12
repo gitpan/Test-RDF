@@ -1,0 +1,4 @@
+@prefix : <http://example.org/a.rdf#> .
+
+_:a1 :pred _:a2 .
+_:a3 :pred _:a4 .

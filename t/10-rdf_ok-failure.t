@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 use Test::More tests => 5;
 use Test::Builder::Tester;
 use Test::RDF;

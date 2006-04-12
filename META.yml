@@ -1,9 +1,9 @@
 ---
 name: Test-RDF
-version: 0.0.1
+version: 0.0.2
 author:
-  - Michael Hendricks  <michael@palmcluster.org>
-abstract: test the validity of RDF data
+  - 'Michael Hendricks  <michael@palmcluster.org>'
+abstract: Test RDF data for validity and equality
 license: perl
 requires:
   RDF::Redland: 1.000101
@@ -12,5 +12,5 @@ build_requires:
 provides:
   Test::RDF:
     file: lib/Test/RDF.pm
-    version: 0.0.1
+    version: 0.0.2
 generated_by: Module::Build version 0.2611

@@ -1,0 +1,7 @@
+@prefix : <http://example.org/a.rdf#> .
+
+:one :two :three .
+:one :two "four" .
+:one :two "four"@fr .
+:one :two [ a :five ] .
+:one :two "four"^^:blah .
