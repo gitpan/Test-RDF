@@ -28,7 +28,7 @@ like( $@, qr/RDF serialization format required/, 'no format' );
 
 # provide no filename
 eval { rdf_ok( rdfxml => undef ) };
-like( $@, qr/RDF filename required/, 'no filename' );
+like( $@, qr/RDF data source required/, 'no filename' );
 
 # provide a filename to a nonexistant file
 eval { rdf_ok( rdfxml => 'no_such_file_as_this' ) };

@@ -8,23 +8,35 @@ use Test::Builder;
 use RDF::Redland;
 use base qw( Exporter );
 
-our $VERSION = '0.0.2';
+our $VERSION = '0.0.3';
 our @EXPORT  = qw( rdf_ok rdf_eq );
 
 my $Test = Test::Builder->new();
 RDF::Redland::set_log_handler(\&_log_handler);
 
 sub rdf_ok {
-    my ($format, $filename, $message) = @_;
+    my ($format, $rdf_source, $message) = @_;
     croak "RDF serialization format required"  if !$format;
-    croak "RDF filename required"              if !$filename;
-    croak "RDF file '$filename' doesn't exist" if !-e $filename;
+    croak "RDF data source required"           if !$rdf_source;
+
+    my $rdf_by_ref = ref($rdf_source) eq 'SCALAR';
+    croak "RDF file '$rdf_source' doesn't exist"
+        if !$rdf_by_ref && !-e $rdf_source;
 
     # try to parse the file
     eval {
         my $parser = RDF::Redland::Parser->new($format);
-        my $uri = RDF::Redland::URI->new("file:$filename");
-        my $stream = $parser->parse_as_stream($uri);
+        my $stream;
+        if ( $rdf_by_ref ) {
+            $stream = $parser->parse_string_as_stream(
+                $$rdf_source,
+                RDF::Redland::URI->new('http://example.org/'),
+            );
+        }
+        else {
+            my $uri = RDF::Redland::URI->new("file:$rdf_source");
+            $stream = $parser->parse_as_stream($uri);
+        }
         while ( !$stream->end() ) {
             my $statement = $stream->current();
             $stream->next();
@@ -46,20 +58,31 @@ sub rdf_eq {
         push @models, $model;
 
         # validate the format and filename arguments
-        my $format   = shift @_;
-        my $filename = shift @_;
+        my $format     = shift @_;
+        my $rdf_source = shift @_;
 
         croak "RDF serialization format required for part $model_name"
             if !$format;
-        croak "RDF filename required for part $model_name"
-            if !$filename;
-        croak "RDF file '$filename' doesn't exist for part $model_name"
-            if !-e $filename;
+        croak "RDF data source required for part $model_name"
+            if !$rdf_source;
+
+        my $rdf_by_ref = ref($rdf_source) eq 'SCALAR';
+        croak "RDF file '$rdf_source' doesn't exist for part $model_name"
+            if !$rdf_by_ref && !-e $rdf_source;
 
         # parse the file contents into the model
         my $parser = RDF::Redland::Parser->new($format);
-        my $uri = RDF::Redland::URI->new("file:$filename");
-        $parser->parse_into_model( $uri, $uri, $model );
+        if ( $rdf_by_ref ) {
+            $parser->parse_string_into_model(
+                $$rdf_source,
+                RDF::Redland::URI->new('http://example.org/'),
+                $model,
+            );
+        }
+        else {
+            my $uri = RDF::Redland::URI->new("file:$rdf_source");
+            $parser->parse_into_model( $uri, $uri, $model );
+        }
     }
 
     my $message = shift @_;
@@ -219,26 +242,34 @@ Test::RDF - Test RDF data for validity and equality
  
 =head1 VERSION
  
-This documentation refers to Test::RDF version 0.0.1
+This documentation refers to Test::RDF version 0.0.3
  
  
 =head1 SYNOPSIS
  
-    use Test::More tests => 1;
+    use Test::More tests => 3;
     use Test::RDF;
     
     rdf_ok( rdfxml => 'data.rdf', 'data validity' );
     rdf_eq( rdfxml => 'data.rdf', turtle => 'data.ttl', 'XML==Turtle' );
+    
+    rdf_eq(
+        ntriples => \'_:a <http://example.org> "literal .',
+        turtle   => \' [] <http://example.org> "literal .',
+        'ntriples and turtle blank node equivalence',
+    );
 
 =head1 DESCRIPTION
 
 Test::RDF is used for testing RDF data in various formats.  Currently,
-Test::RDF exports a single function C<rdf_ok> which checks the validity of an
-RDF file.  See L<rdf_ok> for details.
+Test::RDF exports two functions L</rdf_ok> (check the validity of various RDF
+serialization formats) and L</rdf_eq> (check for RDF graph equivalence).
 
 =head1 SUBROUTINES
 
-=head2 rdf_eq $FORMAT, $FILENAME, $FORMAT, $FILENAME [, $MESSAGE]
+=head2 rdf_eq
+
+    Arguments: $FORMAT, $SOURCE, $FORMAT, $SOURCE [, $MESSAGE]
 
 Compares the RDF graphs created by the two RDF serializations for graph
 equivalence.  RDF graph equivalence is defined by the RDF Concepts and
@@ -247,17 +278,27 @@ L<http://www.w3.org/TR/rdf-concepts/#section-graph-equality>.  If the two
 graphs are equivalent, the test passes.  If the two graphs are not equivalent,
 the test fails with a helpful diagnostic message.
 
+The C<$FORMAT> arguments should be one of: C<rdfxml>, C<turtle> or C<ntriples>
+(actually, you can use any format allowed by your version of
+L<RDF::Redland::Parser>).  C<$SOURCE> should be either the path to a file or a
+reference to a scalar containing RDF data in the specified format.
+C<$MESSAGE> is an optional message to use when displaying the "ok" or "not ok"
+message.
+
 C<rdf_eq> does not correctly handle reflexive statements involving bnodes.
 That is, statements where subject and object are the same blank node.
  
-=head2 rdf_ok $FORMAT, $FILENAME [, $MESSAGE]
+=head2 rdf_ok
+
+    Arguments: $FORMAT, $SOURCE [, $MESSAGE]
 
 C<$FORMAT> specifies the expected format of the RDF file.  It should be one
-of: rdfxml, turtle or ntriples (actually, you can use any format allowed by
-your version of L<RDF::Redland::Parser> but those three are the most commonly
-useful).  C<$FILENAME> should be the path to a file containing RDF data in the
-specified format.  C<$MESSAGE> is an optional message to use when displaying
-the "ok" or "not ok" message.
+of: C<rdfxml>, C<turtle> or C<ntriples> (actually, you can use any format
+allowed by your version of L<RDF::Redland::Parser> but those three are the
+most commonly useful).  C<$SOURCE> should be either the path to a file or a
+reference to a scalar containing RDF data in the specified format.
+C<$MESSAGE> is an optional message to use when displaying the "ok" or "not ok"
+message.
  
 =head1 CONFIGURATION AND ENVIRONMENT
  

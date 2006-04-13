@@ -5,12 +5,17 @@ use Test::RDF;
 
 my @test_files = _find_test_files();
 plan skip_all => "Couldn't find any test files" if !@test_files;
-plan tests => (scalar @test_files);
+plan tests => 1 + (scalar @test_files);
 
 for my $file (@test_files) {
     my $format = _determine_format($file);
     rdf_ok( $format => $file, $file );
 }
+
+rdf_ok(
+    turtle => \'_:a <http://example.org/> "literal" .',
+    'passing RDF by reference'
+);
 
 sub _find_test_files {
     return glob 't/good/*';

@@ -1,6 +1,6 @@
 ---
 name: Test-RDF
-version: 0.0.2
+version: 0.0.3
 author:
   - 'Michael Hendricks  <michael@palmcluster.org>'
 abstract: Test RDF data for validity and equality
@@ -12,5 +12,5 @@ build_requires:
 provides:
   Test::RDF:
     file: lib/Test/RDF.pm
-    version: 0.0.2
+    version: 0.0.3
 generated_by: Module::Build version 0.2611

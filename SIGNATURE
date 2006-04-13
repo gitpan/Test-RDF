@@ -15,18 +15,18 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 e229d1e75d920a5a3f65b98c046d968cfea9b980 Build.PL
-SHA1 46a6d8621db68fd87545685eae1a1d7e6dd0f820 Changes
+SHA1 40854e45eff5fd409b66403996b25a93bc4c850d Changes
 SHA1 f988bafd3765ca5a25260c93f2b46f3c1f06d522 MANIFEST
-SHA1 1427a449d493e4f93a55eb045258b4ea74b04a08 META.yml
+SHA1 1b5a5af3e47d0b1e9d6811cf2bff257d709d7863 META.yml
 SHA1 a359d4072690a21ce63e4b393bdbc19d72b6be5a Makefile.PL
 SHA1 e0da44a4124c64ce73b7d01a35680fd7e927952f README
-SHA1 83570faccc5c8329227137e4059007d7d22ac99b lib/Test/RDF.pm
+SHA1 0a30e6518bd1f3e5a634c8f5db8a26316e422819 lib/Test/RDF.pm
 SHA1 c8f215c180d51f0bb42bee5cb94bd112d0020d84 t/0-signature.t
 SHA1 bafce760995ba5fbaa01af89fce21e2d5d7074cb t/00-load.t
-SHA1 c0efd91c4e0bddaf716c5b5bba1aec34812dd429 t/10-rdf_ok-failure.t
-SHA1 a20a72c3e5ace76c0ce416eb186372730ab3fe03 t/10-rdf_ok-success.t
+SHA1 9180672d0cbf2cc442a1862f1b742915b006ff94 t/10-rdf_ok-failure.t
+SHA1 89ac7c1da3f0e68dd6cd1d3b76361202f540ef6d t/10-rdf_ok-success.t
 SHA1 34dbfa1de47c5e25022a4e8a30ab57b89686101b t/20-rdf_eq-failure.t
-SHA1 a3cd09f4ff984502f0171a169d9d3d53e7b13eae t/20-rdf_eq-success.t
+SHA1 851d12f3035c775ac8d241d89176cda182fd88fb t/20-rdf_eq-success.t
 SHA1 6544d5365d1b5faaf3c3bf9c17cba3f6edc83b79 t/bad/malformed.rdf
 SHA1 d56e028cd4b0c2a278033f8877525a7577d0a09c t/bad/not-RDF.rdf
 SHA1 3445a4dc8d368e9776bbefdcc5d504c56f782c78 t/good/dc.nt
@@ -46,7 +46,7 @@ SHA1 456f95a396471d7c9b83c72585384e71e62e629c t/rdf/g0.ttl
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.2.2 (GNU/Linux)
 
-iD8DBQFEPS7o2SxmMIGsLdwRAjvZAKCPZq8SuZM2XfBlibjuydD4bFpMPACgjgq6
-+TXbc7LPgN9i/xQVvYl93o8=
-=P7ca
+iD8DBQFEPrzZ2SxmMIGsLdwRAlTgAJ0bIyo7+FINg4w/c+1Apg5/XG4QuQCgiG7B
+1mh5Ov/3peOlYl7UmfGFQoE=
+=m/O3
 -----END PGP SIGNATURE-----
