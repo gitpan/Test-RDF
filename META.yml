@@ -1,16 +1,31 @@
 ---
-name: Test-RDF
-version: 0.0.3
+abstract: 'for validity and equality'
 author:
-  - 'Michael Hendricks  <michael@palmcluster.org>'
-abstract: Test RDF data for validity and equality
-license: perl
-requires:
-  RDF::Redland: 1.000101
+  - 'Kjetil Kjernsmo <kjetilk@cpan.org>'
 build_requires:
+  ExtUtils::MakeMaker: 6.42
+  Test::Tester: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 0.91'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Test-RDF
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+requires:
+  RDF::Trine: 0
+  Test::Builder::Module: 0
   Test::More: 0
-provides:
-  Test::RDF:
-    file: lib/Test/RDF.pm
-    version: 0.0.3
-generated_by: Module::Build version 0.2611
+  Text::Diff::Table: 0
+resources:
+  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Test-RDF
+  license: http://dev.perl.org/licenses/
+  repository: git://github.com/kjetilk/Test-RDF.git
+version: 0.10

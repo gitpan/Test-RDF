@@ -1,20 +1,70 @@
-README for Test-RDF
+NAME
+    Test::RDF - for validity and equality
 
-For full documentation see the POD for Test::RDF.
+VERSION
+    Version 0.10
 
-INSTALLATION
+SYNOPSIS
+     use Test::RDF;
 
-To install this module, run the following commands:
+     is_valid_rdf $rdf_string, $syntax,  'RDF string is valid according to selected syntax';
+     is_rdf       $rdf_string, $syntax1, $expected_rdf_string, $syntax2, 'The two strings have the same triples';
+     isomorph_graphs $model, $expected_model, 'The two models have the same triples'
 
-    perl Build.PL
-    ./Build
-    ./Build test
-    ./Build install
+EXPORT
+  is_valid_rdf
+    Use to check if the input RDF string is valid in the chosen syntax
 
+  is_rdf
+    Use to check if the input RDF strings are isomorphic (i.e. the same)
 
-COPYRIGHT AND LICENCE
+  isomorph_graphs
+    Use to check if the input RDF::Trine::Models have isomorphic graphs
 
-Copyright (C) 2006 Michael Hendricks <michael@palmcluster.org>
+AUTHOR
+    Kjetil Kjernsmo, "<kjetilk at cpan.org>"
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+BUGS
+    Please report any bugs or feature requests to "bug-test-rdf at
+    rt.cpan.org", or through the web interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-RDF>. I will be
+    notified, and then you'll automatically be notified of progress on your
+    bug as I make changes.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc Test::RDF
+
+    You can also look for information at:
+
+    *   RT: CPAN's request tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-RDF>
+
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/Test-RDF>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/Test-RDF>
+
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/Test-RDF/>
+
+ACKNOWLEDGEMENTS
+    Michael Hendricks wrote the first Test::RDF. The present module is a
+    complete rewrite from scratch using Gregory Todd William's
+    RDF::Trine::Graph to do the heavy lifting.
+
+LICENSE AND COPYRIGHT
+    Copyright 2010 ABC Startsiden AS and Kjetil Kjernsmo.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of either: the GNU General Public License as published
+    by the Free Software Foundation; or the Artistic License.
+
+    See http://dev.perl.org/licenses/ for more information.
+

@@ -1,8 +1,0 @@
-@prefix : <http://example.org/a.rdf#> .
-
-:one :two "four"^^:blah .
-:one :two _:abcde .
-    _:abcde a :five .
-:one :two "four" .
-:one :two "four"@en .
-:one :two :three .
