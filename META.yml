@@ -1,5 +1,5 @@
 ---
-abstract: 'for validity and equality'
+abstract: 'Test RDF data for validity and equality'
 author:
   - 'Kjetil Kjernsmo <kjetilk@cpan.org>'
 build_requires:
@@ -28,4 +28,4 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Test-RDF
   license: http://dev.perl.org/licenses/
   repository: git://github.com/kjetilk/Test-RDF.git
-version: 0.10
+version: 0.11
