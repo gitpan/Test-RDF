@@ -12,21 +12,21 @@ use RDF::Trine::Graph;
 use RDF::Trine::Serializer::NTriples::Canonical;
 
 use base 'Test::Builder::Module';
-our @EXPORT = qw/is_rdf is_valid_rdf isomorph_graphs/;
+our @EXPORT = qw/is_rdf is_valid_rdf isomorph_graphs has_subject has_predicate has_object_uri has_uri has_literal/;
 
 
 
 =head1 NAME
 
-Test::RDF - Test RDF data for validity and equality
+Test::RDF - Test RDF data for content, validity and equality
 
 =head1 VERSION
 
-Version 0.11
+Version 0.20
 
 =cut
 
-our $VERSION = '0.11';
+our $VERSION = '0.20';
 
 
 =head1 SYNOPSIS
@@ -36,6 +36,10 @@ our $VERSION = '0.11';
  is_valid_rdf $rdf_string, $syntax,  'RDF string is valid according to selected syntax';
  is_rdf       $rdf_string, $syntax1, $expected_rdf_string, $syntax2, 'The two strings have the same triples';
  isomorph_graphs $model, $expected_model, 'The two models have the same triples'
+ has_subject($uri_string, $model, 'Subject URI is found');
+ has_predicate($uri_string, $model, 'Predicate URI is found');
+ has_object_uri($uri_string, $model, 'Object URI is found');
+ has_literal($string, $language, $datatype, $model, 'Literal is found');
 
 
 =head1 EXPORT
@@ -123,6 +127,131 @@ sub isomorph_graphs {
         return;
     }
 }
+
+=head2 has_subject
+
+Check if the string URI passed as first argument is a subject in any
+of the statements given in the model given as second argument.
+
+=cut
+
+sub has_subject {
+  my ($uri, $model, $name) = @_;
+  my $count = $model->count_statements(RDF::Trine::Node::Resource->new($uri), undef, undef);
+  return _single_uri_tests($count, $name);
+}
+
+
+=head2 has_predicate
+
+Check if the string URI passed as first argument is a predicate in any
+of the statements given in the model given as second argument.
+
+=cut
+
+sub has_predicate {
+  my ($uri, $model, $name) = @_;
+  my $count = $model->count_statements(undef, RDF::Trine::Node::Resource->new($uri), undef);
+  return _single_uri_tests($count, $name);
+}
+
+=head2 has_object_uri
+
+Check if the string URI passed as first argument is a object in any
+of the statements given in the model given as second argument.
+
+=cut
+
+sub has_object_uri {
+  my ($uri, $model, $name) = @_;
+  my $count = $model->count_statements(undef, undef, RDF::Trine::Node::Resource->new($uri));
+  return _single_uri_tests($count, $name);
+}
+
+=head2 has_literal
+
+Check if the string passed as first argument, with corresponding
+optional language and datatype as second and third respectively, is a
+literal in any of the statements given in the model given as fourth
+argument.
+
+language and datatype may not occur in the same statement, so the test
+fails if they are both set. If none are used, use C<undef>, like e.g.
+
+ has_literal('A test', undef, undef, $model, 'Simple literal');
+
+A test for a typed literal may be done like
+
+ has_literal('42', undef, 'http://www.w3.org/2001/XMLSchema#integer', $model, 'Just an integer');
+
+and a language literal like
+
+ has_literal('This is a Another test', 'en', undef, $model, 'Language literal');
+
+
+=cut
+
+sub has_literal {
+  my ($string, $lang, $datatype, $model, $name) = @_;
+  my $literal;
+  my $test = __PACKAGE__->builder;
+  eval {
+    $literal = RDF::Trine::Node::Literal->new($string, $lang, $datatype);
+  };
+  if ( my $error = $@ ) {
+    $test->ok( 0, $name );
+    $test->diag("Invalid literal:\n\n\t$error");
+    return;
+  }
+
+#  local $Test::Builder::Level = $Test::Builder::Level + 1;
+  if ($model->count_statements(undef, undef, $literal) > 0) {
+    $test->ok( 1, $name );
+    return 1;
+  } else {
+    $test->ok( 0, $name );
+    $test->diag('No matching literals found in model');
+    return 0;
+  }}
+
+
+=head2 has_uri
+
+Check if the string URI passed as first argument is present in any of
+the statements given in the model given as second argument.
+
+=cut
+
+sub has_uri {
+  my ($uri, $model, $name) = @_;
+  my $test = __PACKAGE__->builder;
+  if ($model->count_statements(undef, undef, RDF::Trine::Node::Resource->new($uri)) > 0
+      || $model->count_statements(undef, RDF::Trine::Node::Resource->new($uri), undef) > 0
+      || $model->count_statements(RDF::Trine::Node::Resource->new($uri), undef, undef) > 0) {
+    $test->ok( 1, $name );
+    return 1;
+  } else {
+    $test->ok( 0, $name );
+    $test->diag('No matching URIs found in model');
+    return 0;
+  }
+}
+
+
+sub _single_uri_tests {
+  my ($count, $name) = @_;
+  my $test = __PACKAGE__->builder;
+  local $Test::Builder::Level = $Test::Builder::Level + 1;
+  if ($count > 0) {
+    $test->ok( 1, $name );
+    return 1;
+  } else {
+    $test->ok( 0, $name );
+    $test->diag('No matching URIs found in model');
+    return 0;
+  }
+}
+
 
 
 
