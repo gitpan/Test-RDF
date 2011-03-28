@@ -21,6 +21,7 @@ META.yml
 README
 SIGNATURE
 t/00-load.t
+t/are_subgraphs.t
 t/has_literal.t
 t/has_uri.t
 t/is_rdf.t

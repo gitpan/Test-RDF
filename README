@@ -2,7 +2,7 @@ NAME
     Test::RDF - Test RDF data for content, validity and equality
 
 VERSION
-    Version 0.20
+    Version 0.21_1
 
 SYNOPSIS
      use Test::RDF;
@@ -20,10 +20,14 @@ EXPORT
     Use to check if the input RDF string is valid in the chosen syntax
 
   is_rdf
-    Use to check if the input RDF strings are isomorphic (i.e. the same)
+    Use to check if the input RDF strings are isomorphic (i.e. the same).
 
   isomorph_graphs
-    Use to check if the input RDF::Trine::Models have isomorphic graphs
+    Use to check if the input RDF::Trine::Models have isomorphic graphs.
+
+  are_subgraphs
+    Use to check if the first RDF::Trine::Models is a subgraph of the
+    second.
 
   has_subject
     Check if the string URI passed as first argument is a subject in any of
@@ -59,6 +63,11 @@ EXPORT
   has_uri
     Check if the string URI passed as first argument is present in any of
     the statements given in the model given as second argument.
+
+NOTE
+    Graph isomorphism is a complex problem, so do not attempt to run the
+    isomorphism tests on large datasets. For more information see
+    <http://en.wikipedia.org/wiki/Graph_isomorphism_problem>.
 
 AUTHOR
     Kjetil Kjernsmo, "<kjetilk at cpan.org>"
@@ -99,7 +108,7 @@ ACKNOWLEDGEMENTS
     RDF::Trine::Graph to do the heavy lifting.
 
 LICENSE AND COPYRIGHT
-    Copyright 2010 ABC Startsiden AS and Kjetil Kjernsmo.
+    Copyright 2010 ABC Startsiden AS and 2010-2011 Kjetil Kjernsmo.
 
     This program is free software; you can redistribute it and/or modify it
     under the terms of either: the GNU General Public License as published

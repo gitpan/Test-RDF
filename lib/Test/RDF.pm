@@ -4,15 +4,13 @@ use warnings;
 use strict;
 
 use Carp;
-use Text::Diff;
 use RDF::Trine;
 use RDF::Trine::Parser;
 use RDF::Trine::Model;
 use RDF::Trine::Graph;
-use RDF::Trine::Serializer::NTriples::Canonical;
 
 use base 'Test::Builder::Module';
-our @EXPORT = qw/is_rdf is_valid_rdf isomorph_graphs has_subject has_predicate has_object_uri has_uri has_literal/;
+our @EXPORT = qw/are_subgraphs is_rdf is_valid_rdf isomorph_graphs has_subject has_predicate has_object_uri has_uri has_literal/;
 
 
 
@@ -22,11 +20,11 @@ Test::RDF - Test RDF data for content, validity and equality
 
 =head1 VERSION
 
-Version 0.20
+Version 0.21_1
 
 =cut
 
-our $VERSION = '0.20';
+our $VERSION = '0.21_1';
 
 
 =head1 SYNOPSIS
@@ -71,7 +69,7 @@ sub is_valid_rdf {
 
 =head2 is_rdf
 
-Use to check if the input RDF strings are isomorphic (i.e. the same)
+Use to check if the input RDF strings are isomorphic (i.e. the same).
 
 =cut
 
@@ -103,7 +101,7 @@ sub is_rdf {
 
 =head2 isomorph_graphs
 
-Use to check if the input RDF::Trine::Models have isomorphic graphs
+Use to check if the input RDF::Trine::Models have isomorphic graphs.
 
 =cut
 
@@ -119,11 +117,31 @@ sub isomorph_graphs {
         return 1;
     } else {
         $test->ok( 0, $name );
-        my $serializer = RDF::Trine::Serializer::NTriples::Canonical->new;
         $test->diag('Graphs differ:');
-        $test->diag(diff \$serializer->serialize_model_to_string($model1),
-                         \$serializer->serialize_model_to_string($model2),
-                    { STYLE => "Table" });
+        $test->diag($g1->error);
+        return;
+    }
+}
+
+=head2 are_subgraphs
+
+Use to check if the first RDF::Trine::Models is a subgraph of the second.
+
+=cut
+
+sub are_subgraphs {
+    my ($model1, $model2, $name) = @_;
+    my $g1 = RDF::Trine::Graph->new( $model1 );
+    my $g2 = RDF::Trine::Graph->new( $model2 );
+    my $test = __PACKAGE__->builder;
+
+    if ($g1->is_subgraph_of($g2)) {
+        $test->ok( 1, $name );
+        return 1;
+    } else {
+        $test->ok( 0, $name );
+	$test->diag('Graph not subgraph: ' . $g1->error) if defined($g1->error);
+        $test->diag('Hint: There are ' . $model1->size . ' statement(s) in model1 and ' . $model2->size . ' statement(s) in model2');
         return;
     }
 }
@@ -253,6 +271,11 @@ sub _single_uri_tests {
 }
 
 
+=head1 NOTE
+
+Graph isomorphism is a complex problem, so do not attempt to run the
+isomorphism tests on large datasets. For more information see
+L<http://en.wikipedia.org/wiki/Graph_isomorphism_problem>.
 
 
 =head1 AUTHOR
@@ -304,7 +327,7 @@ L<RDF::Trine::Graph> to do the heavy lifting.
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2010 ABC Startsiden AS and Kjetil Kjernsmo.
+Copyright 2010 ABC Startsiden AS and 2010-2011 Kjetil Kjernsmo.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
