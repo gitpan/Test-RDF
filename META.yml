@@ -1,5 +1,5 @@
 ---
-abstract: 'Test RDF data for content, validity and equality'
+abstract: 'Test RDF data for content, validity and equality, etc.'
 author:
   - 'Kjetil Kjernsmo, C<< <kjetilk at cpan.org> >>'
   - 'Kjetil Kjernsmo <kjetilk@cpan.org>'
@@ -21,11 +21,11 @@ no_index:
     - t
     - xt
 requires:
-  RDF::Trine: 0.133_01
+  RDF::Trine: 0.134
   Test::Builder::Module: 0
   Test::More: 0
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Test-RDF
   license: http://dev.perl.org/licenses/
   repository: git://github.com/kjetilk/Test-RDF.git
-version: 0.21_1
+version: 0.22

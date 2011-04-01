@@ -9,16 +9,23 @@ Created:      2010-09-03
 Bug tracker:  <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-RDF>
 Maintainer:   Kjetil Kjernsmo <mailto:kjetilk@cpan.org>
 
+0.22 [2011-04-01] # Subgraph tests.
+ - (Addition) Use the RDF::Graph::Trine error function for diagnostics
+ - (Removal) Remove the now unneeded dependency on Text::Diff::Table.
+ - (Addition) More documentation.
+ - (Addition) Add a are_subgraphs function for testing if one graph is a
+   subgraph of another.
+
 0.20 [2010-12-18] # Add functions for testing resources and literals.
- - Check Redland error messages in addition to Trine.
- - (Addition) has_literal function to test if a literal is present.
- - (Addition) has_object_uri function to test if a URI is present as
-   object.
- - (Addition) has_predicate function to test if a URI is present as
-   predicate.
- - (Addition) has_subject function to test if a URI is present as subject.
  - (Addition) has_uri function to test if a URI is present at all in the
    graph.
+ - (Addition) has_subject function to test if a URI is present as subject.
+ - (Addition) has_predicate function to test if a URI is present as
+   predicate.
+ - Check Redland error messages in addition to Trine.
+ - (Addition) has_object_uri function to test if a URI is present as
+   object.
+ - (Addition) has_literal function to test if a literal is present.
 
 0.11 [2010-11-08] # Fix tainting problem.
  - Fix the tainting problem many cpantesters have.
@@ -26,8 +33,8 @@ Maintainer:   Kjetil Kjernsmo <mailto:kjetilk@cpan.org>
  - Small cosmetic changes.
 
 0.10 [2010-11-06] # Complete rewrite.
- - A complete rewrite from scratch using RDF::Trine.
  - Backwards incompatible with previous releases.
+ - A complete rewrite from scratch using RDF::Trine.
 
 0.0.3 [2006-13-04] # Michael Hendricks old release based on RDF::Redland.
 
