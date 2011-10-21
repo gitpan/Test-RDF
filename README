@@ -2,7 +2,7 @@ NAME
     Test::RDF - Test RDF data for content, validity and equality, etc.
 
 VERSION
-    Version 0.22
+    Version 0.24
 
 SYNOPSIS
      use Test::RDF;
@@ -15,6 +15,8 @@ SYNOPSIS
      has_predicate($uri_string, $model, 'Predicate URI is found');
      has_object_uri($uri_string, $model, 'Object URI is found');
      has_literal($string, $language, $datatype, $model, 'Literal is found');
+     pattern_target($model);
+     pattern_ok($pattern, '$pattern found in $model');
 
 EXPORT
   is_valid_rdf
@@ -65,6 +67,42 @@ EXPORT
     Check if the string URI passed as first argument is present in any of
     the statements given in the model given as second argument.
 
+  pattern_target
+    Tests that the object passed as its parameter is an RDF::Trine::Model or
+    RDF::Trine::Store. That is, tests that it is a valid thing to match
+    basic graph patterns against.
+
+    Additionally, this test establishes the target for future "pattern_ok"
+    tests.
+
+  pattern_ok
+    Tests that the pattern passed matches against the target established by
+    "pattern_target". The pattern may be passed as an RDF::Trine::Pattern,
+    or a list of RDF::Trine::Statement objects.
+
+     use Test::RDF;
+     use RDF::Trine qw[iri literal blank variable statement];
+     use My::Module;
+
+     my $foaf = RDF::Trine::Namespace->new('http://xmlns.com/foaf/0.1/');
+     pattern_target(My::Module->get_model); # check isa RDF::Trine::Model
+     pattern_ok(
+       statement(
+         variable('who'),
+         $foaf->name,
+         literal('Kjetil Kjernsmo')
+         ),
+       statement(
+         variable('who'),
+         $foaf->page,
+         iri('http://search.cpan.org/~kjetilk/')
+         ),
+       "Data contains Kjetil's details."
+       );
+
+    Note: "pattern_target" must have been tested before any "pattern_ok"
+    tests.
+
 NOTE
     Graph isomorphism is a complex problem, so do not attempt to run the
     isomorphism tests on large datasets. For more information see
@@ -107,6 +145,8 @@ ACKNOWLEDGEMENTS
     Michael Hendricks wrote the first Test::RDF. The present module is a
     complete rewrite from scratch using Gregory Todd William's
     RDF::Trine::Graph to do the heavy lifting.
+
+    Toby Inkster has submitted the pattern_* functions.
 
 LICENSE AND COPYRIGHT
     Copyright 2010 ABC Startsiden AS and 2010-2011 Kjetil Kjernsmo.

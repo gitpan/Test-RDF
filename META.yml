@@ -9,7 +9,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 1.00'
+generated_by: 'Module::Install version 1.02'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -22,10 +22,11 @@ no_index:
     - xt
 requires:
   RDF::Trine: 0.134
+  Scalar::Util: 0
   Test::Builder::Module: 0
   Test::More: 0
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Test-RDF
   license: http://dev.perl.org/licenses/
   repository: git://github.com/kjetilk/Test-RDF.git
-version: 0.22
+version: 0.24
