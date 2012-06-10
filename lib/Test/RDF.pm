@@ -11,7 +11,7 @@ use RDF::Trine::Graph;
 use Scalar::Util qw/blessed/;
 
 use base 'Test::Builder::Module';
-our @EXPORT = qw/are_subgraphs is_rdf is_valid_rdf isomorph_graphs has_subject has_predicate has_object_uri has_uri has_literal pattern_target pattern_ok/;
+our @EXPORT = qw/are_subgraphs is_rdf is_valid_rdf isomorph_graphs has_subject has_predicate has_object_uri has_uri hasnt_uri has_literal pattern_target pattern_ok/;
 
 
 =head1 NAME
@@ -20,11 +20,11 @@ Test::RDF - Test RDF data for content, validity and equality, etc.
 
 =head1 VERSION
 
-Version 0.24
+Version 0.26
 
 =cut
 
-our $VERSION = '0.24';
+our $VERSION = '0.26';
 
 
 =head1 SYNOPSIS
@@ -35,6 +35,8 @@ our $VERSION = '0.24';
  is_rdf($rdf_string, $syntax1, $expected_rdf_string, $syntax2, 'The two strings have the same triples');
  isomorph_graphs($model, $expected_model, 'The two models have the same triples');
  are_subgraphs($model1, $model2, 'Model 1 is a subgraph of model 2' );
+ has_uri($uri_string, $model, 'Has correct URI');
+ hasnt_uri($uri_string, $model, "Hasn't correct URI");
  has_subject($uri_string, $model, 'Subject URI is found');
  has_predicate($uri_string, $model, 'Predicate URI is found');
  has_object_uri($uri_string, $model, 'Object URI is found');
@@ -269,6 +271,29 @@ sub has_uri {
 }
 
 
+=head2 hasnt_uri
+
+Check if the string URI passed as first argument is not present in any
+of the statements given in the model given as second argument.
+
+=cut
+
+sub hasnt_uri {
+  my ($uri, $model, $name) = @_;
+  my $test = __PACKAGE__->builder;
+  if ($model->count_statements(undef, undef, RDF::Trine::Node::Resource->new($uri)) > 0
+      || $model->count_statements(undef, RDF::Trine::Node::Resource->new($uri), undef) > 0
+      || $model->count_statements(RDF::Trine::Node::Resource->new($uri), undef, undef) > 0) {
+    $test->ok( 0, $name );
+    $test->diag('Matching URIs found in model');
+    return 0;
+  } else {
+    $test->ok( 1, $name );
+    return 1;
+  }
+}
+
+
 sub _single_uri_tests {
   my ($count, $name) = @_;
   my $test = __PACKAGE__->builder;
@@ -361,7 +386,25 @@ B<Note:> C<pattern_target> must have been tested before any C<pattern_ok> tests.
       $test->ok(1, $message);
       return 1;
     }
+	 my $noreturns;
+	 foreach my $triple ($pattern->triples) {
+		 my @triple;
+		 foreach my $node ($triple->nodes) {
+			 if ($node->is_variable) {
+				 push(@triple, undef);
+			 } else {
+				 push(@triple, $node);
+			 }
+		 }
+		 next if ($target->count_statements(@triple));
+		 $noreturns .= $triple->as_string . "\n";
+	 }
     $test->ok(0, $message);
+	 if ($noreturns) {
+		 $test->diag("Triples that had no results:\n$noreturns");
+	 } else {
+		 $test->diag('Pattern as a whole did not match');
+	 }
     return 0;
   }
 } # /scope for $target
@@ -380,9 +423,8 @@ Kjetil Kjernsmo, C<< <kjetilk at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-test-rdf at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Test-RDF>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs using L<github|https://github.com/kjetilk/Test-RDF/issues>
+
 
 =head1 SUPPORT
 
@@ -390,14 +432,11 @@ You can find documentation for this module with the perldoc command.
 
     perldoc Test::RDF
 
+You may find the Perl and RDF community L<website|http://www.perlrdf.org/> useful.
 
 You can also look for information at:
 
 =over 4
-
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Test-RDF>
 
 =item * AnnoCPAN: Annotated CPAN documentation
 
@@ -410,6 +449,10 @@ L<http://cpanratings.perl.org/d/Test-RDF>
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/Test-RDF/>
+
+=item * MetaCPAN
+
+L<https://metacpan.org/module/Test::RDF>
 
 =back
 
@@ -424,7 +467,7 @@ Toby Inkster has submitted the pattern_* functions.
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2010 ABC Startsiden AS and 2010-2011 Kjetil Kjernsmo.
+Copyright 2010 ABC Startsiden AS and 2010-2012 Kjetil Kjernsmo.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published

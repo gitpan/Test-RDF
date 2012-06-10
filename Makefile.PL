@@ -8,6 +8,7 @@ license  'perl';
 
 test_requires 'Test::Tester';
 
+
 requires 'Scalar::Util';
 requires 'Test::More';
 requires 'Test::Builder::Module';
@@ -16,8 +17,11 @@ requires 'RDF::Trine' => '0.134';
 author_tests('xt');
 
 auto_set_repository;
-auto_set_bugtracker;
 
+resources
+  bugtracker    => "https://github.com/kjetilk/Test-RDF/issues";
+
+rdf_metadata;
 write_doap_changes;
 
 sign;
