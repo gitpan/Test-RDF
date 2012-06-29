@@ -5,6 +5,10 @@ Created:      2010-09-03
 Bug tracker:  <https://github.com/kjetilk/Test-RDF/issues>
 Maintainer:   Kjetil Kjernsmo <mailto:kjetilk@cpan.org>
 
+1.00  2012-06-30  # Stable release.
+
+ - (Addition) Add a description to the POD.
+
 0.26  2012-06-11  # New hasnt_uri test.
 
  - (Addition) Add hasnt uri test.
