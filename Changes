@@ -5,6 +5,11 @@ Created:      2010-09-03
 Bug tracker:  <https://github.com/kjetilk/Test-RDF/issues>
 Maintainer:   Kjetil Kjernsmo <mailto:kjetilk@cpan.org>
 
+1.10  2012-09-10  # Add pattern_fail.
+
+ - (Addition) Function to test if pattern doesn't exist.
+ - Use RDF-based packaging.
+
 1.00  2012-06-30  # Stable release.
 
  - (Addition) Add a description to the POD.

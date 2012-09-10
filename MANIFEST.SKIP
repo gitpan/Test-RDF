@@ -1,9 +1,0 @@
-#defaults
-^Makefile$
-^blib/
-^blibdirs$
-^pm_to_blib$
-^.git/
-~$
-.bak$
-.tar.gz$
