@@ -5,6 +5,11 @@ Created:      2010-09-03
 Bug tracker:  <https://github.com/kjetilk/Test-RDF/issues>
 Maintainer:   Kjetil Kjernsmo <mailto:kjetilk@cpan.org>
 
+1.11  2012-10-17  # Update to RDF::Trine 1.001.
+
+ - (Update) Update test to check the new errors of
+   RDF::Trine::Parser::Turtle 1.001.
+
 1.10  2012-09-10  # Add pattern_fail.
 
  - (Addition) Function to test if pattern doesn't exist.
