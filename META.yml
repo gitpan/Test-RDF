@@ -24,11 +24,11 @@ no_index:
     - xt
 requires:
   RDF::Trine: 0.134
-  Scalar::Util: 0
+  Scalar::Util: 1.23
   Test::Builder::Module: 0
   Test::More: 0
   perl: 5.005
 resources:
   bugtracker: https://github.com/kjetilk/Test-RDF/issues
   license: http://dev.perl.org/licenses/
-version: 1.11
+version: 1.12
