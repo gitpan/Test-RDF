@@ -5,7 +5,7 @@ Created:      2010-09-03
 Bug tracker:  <https://github.com/kjetilk/Test-RDF/issues>
 Maintainer:   Kjetil Kjernsmo <mailto:kjetilk@cpan.org>
 
-1.15_2  2013-06-25  # Bugfix and hasnt_literal.
+1.16  2013-06-27  # Bugfix and hasnt_literal.
 
  - (Addition) Add new hasnt_literal test.
  - (Bugfix) The new Turtle parser reports errors on a different spot.
