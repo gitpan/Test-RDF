@@ -14,36 +14,51 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
-SHA1 d70873d04f638ac9d6ea0d55f7d7a875d43ccf20 Changes
-SHA1 14fa6f1318a607412ef065e01db9eb4db74411f2 LICENSE
-SHA1 012ecc10e03ba9107856365147d944b491cf425e MANIFEST
-SHA1 49bf055494e402b79bc178183b57d9cceb8be363 META.yml
-SHA1 5391cc35db658809505db2be59d47aa2f073c376 Makefile.PL
-SHA1 a7add5af28fc78426423a91e178a5f8d9a7adb68 README
+SHA1 79a2e30f8278a3d5abc116729009f9e260ac39d4 COPYRIGHT
+SHA1 d9260e11753c8a90159d9ea6b8bc0ed8283b55b0 CREDITS
+SHA1 27aee4c6f300824cc0039c4095b703d44390d7dc Changes
+SHA1 9304476a656062aebc7ec99dda542e277d3affc8 INSTALL
+SHA1 2002decaab4e80b526d7055b24755311a5e47783 LICENSE
+SHA1 4b046d11fdc95b7703c5fb0309eef3caf0bd1042 MANIFEST
+SHA1 235561e6f72d90278444b98fed04cd1cab9d2305 MANIFEST.SKIP
+SHA1 f7fd81bc4c2369f3db92eb05871afcb6c4944c53 META.json
+SHA1 c9fbc382c347e4a1decf4952c9b0c998ae007bfe META.yml
+SHA1 c4c70b102f95acd98c32fc10531a1dcbd40cd0e3 MYMETA.json
+SHA1 34904bb9c74147de4b8d82ddfd2f9bf64d3bc8a6 MYMETA.yml
+SHA1 330a932fe4d08ff6949c851af543c45e95ab9b67 Makefile
+SHA1 9d761fc0b9837aaec38491446e7d006a6baec8b2 Makefile.PL
+SHA1 4e699890ebfde7d13537e83577ee7776801f69a6 README
+SHA1 bb3979169585f24cac572e1d6a3bc64ba61c111f dist.ini
+SHA1 fc7970b84f0c74c8d6c2b3c173d08ee125550de1 doap.ttl
 SHA1 06c410f05488c1612ed66b06d3a86b2580581e4a inc/Module/AutoInstall.pm
 SHA1 8a924add836b60fb23b25c8506d45945e02f42f4 inc/Module/Install.pm
 SHA1 61ab1dd37e33ddbe155907ce51df8a3e56ac8bbf inc/Module/Install/AutoInstall.pm
+SHA1 b0ea9f3fc94eaec503b247ff4bbdc9fc91963727 inc/Module/Install/AutoLicense.pm
 SHA1 c04f94f91fa97b9f8cfb5a36071098ab0e6c78e3 inc/Module/Install/AutoManifest.pm
 SHA1 2d0fad3bf255f8c1e7e1e34eafccc4f595603ddc inc/Module/Install/Base.pm
 SHA1 f0e01fff7d73cd145fbf22331579918d4628ddb0 inc/Module/Install/Can.pm
+SHA1 9e4cc10c7f138a3f2c60d9ee1f34261f0d8c5aae inc/Module/Install/Contributors.pm
+SHA1 8dde5b8c2020629644464296269d9551431aaf3c inc/Module/Install/Copyright.pm
+SHA1 2fcf74964120f40d4f7ea17540509d907c64c557 inc/Module/Install/Credits.pm
+SHA1 10ddee88509716f0ea54b8b7e93243c90f4df61c inc/Module/Install/DOAP.pm
+SHA1 470809a1dbe03e197e74dde79c6af40b5f7f9b26 inc/Module/Install/DOAPChangeSets.pm
 SHA1 7328966e4fda0c8451a6d3850704da0b84ac1540 inc/Module/Install/Fetch.pm
 SHA1 66d3d335a03492583a3be121a7d888f63f08412c inc/Module/Install/Include.pm
 SHA1 b62ca5e2d58fa66766ccf4d64574f9e1a2250b34 inc/Module/Install/Makefile.pm
+SHA1 1a0e63581916a939cf578e2de0e3deb74206a120 inc/Module/Install/ManifestSkip.pm
 SHA1 1aa925be410bb3bfcd84a16985921f66073cc1d2 inc/Module/Install/Metadata.pm
 SHA1 3b9281ddf7dd6d6f5de0a9642c69333023193c80 inc/Module/Install/Package.pm
-SHA1 9de7b5129351499c048328dfa718d0eab557cf30 inc/Module/Install/TrustMetaYml.pm
+SHA1 a4940c9337b07080f3e01d80080b0d6de9fc874f inc/Module/Install/RDF.pm
+SHA1 a3cff7ab08b95ee312b7e9381eb72f42e309c842 inc/Module/Install/ReadmeFromPod.pm
+SHA1 b86d0385e10881db680d28bde94f275e49e34a27 inc/Module/Install/TrustMetaYml.pm
 SHA1 e4196994fa75e98bdfa2be0bdeeffef66de88171 inc/Module/Install/Win32.pm
 SHA1 c3a6d0d5b84feb3280622e9599e86247d58b0d18 inc/Module/Install/WriteAll.pm
 SHA1 26d58a041cd6b3d21db98b32e8fd1841aae21204 inc/Module/Package.pm
-SHA1 c18deb3025b83dda8ac7c97f1e29599e1d2c7378 inc/Module/Package/Dist/RDF.pm
+SHA1 5a2f84a7a82eee0d1e5ed3628fe503a608efc10f inc/Module/Package/Dist/RDF.pm
 SHA1 0e0eed2e69d9583081868cf4f220068d0a018568 inc/Scalar/Util.pm
-SHA1 cdec39174cde0b6ad1c5dabd9d3720fc805ed2bc inc/YAML/Tiny.pm
-SHA1 d710adbf3b56393d9f8d1145905bdad03db91a9f inc/utf8.pm
-SHA1 8c9ef3d6bd943ed23c38aa6b3228e031262d3fde lib/Test/RDF.pm
-SHA1 2c4841567c54574aef20d2d9cf20e5699a5cc1b5 meta/changes.ttl
-SHA1 a4d89db910b1b42365cd7e839733437af4b77743 meta/makefile.ttl
-SHA1 38d44a5588345a34fa46ba72c7c4191831deecc0 meta/people.ttl
-SHA1 902adf90739f913616751feff08ca78904a4125c meta/project.ttl
+SHA1 feb933cefe2e3762e8322bd6071a2499f3440da1 inc/YAML/Tiny.pm
+SHA1 4188e8c264b3571091476a393e5957f97dd838f0 lib/Test/RDF.pm
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 pm_to_blib
 SHA1 8c1510eabbc3a16dad03804bb61bd1b1ed44ebb9 t/00-load.t
 SHA1 45b601013f2b4a6f2f80b95a7708ff21f9212568 t/are_subgraphs.t
 SHA1 cf96f178cca61688f8ab8266f2d9964fb0c50984 t/has_literal.t
@@ -55,19 +70,19 @@ SHA1 53a4d03276d84484ad3c5c12b3ffdcc08bddd5d1 t/isomorph_graphs.t
 SHA1 7768914589944c8c07140cc3bd0f5c82fd585a2e t/pattern_fail.t
 SHA1 80d80f06401ba7ccea49158e59a410680a676a81 t/pattern_ok.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.10 (GNU/Linux)
+Version: GnuPG v1.4.12 (GNU/Linux)
 
-iQIVAwUBUcyJW3++6N86nkqlAQj4kRAAgCL/Ep2yjYRPdx4QFbqAbYXnnmFB0iSh
-KiI7QgkRsbFPiMJYJe4G4mBfX/UsXYtzlEE8PVeEKAdbPPmfEGpNaHmE3g9KvZ1r
-RPxwgEiPJ0LAbGY1RoGwYwJea36v8aJrqNP0nFoINkI3tgFdoA/+QqlrBeAy0i3X
-M+/55pcORhuB8ls+XRBNP/quuSt1+EWlm3MccwlSK5bnx/p3RO7jCmOaMCaFDFjC
-gVBKJGGfCTGYtid2JSC/r6l9I6OColJCu0k64MfmJWR/2GwqpcqFNH+5AmVR3gnG
-CtFp5hiZEh+V1rOvPJmfsT/4E31aBzj5yqIFe6NgoIG4V7R+IL/E9G9rAyrWlgY9
-wGIKnUCpoXKvX61XliAuSXNolwzBvlhm1bFIjlFzKkk60ZS+IJ0Eecv2QXNqLFy2
-9ac0GMhmaDNYUFkM9i6Dd2kTkqX8tSYDZwdE0JjyZuyqH0nR4lZ0Crma3JLv5WaS
-0V84HMG+6Uay1itKfqs01OihJCju4T7e3mtCiJdcvf1AL46sNOpjHEiE69Z1RgKl
-SeUUa034J/dxCSEGflKLbZ/tfINdELhIdxpXzOtqP7Zrg23eH0VjY4Psrabi6Iaz
-akyZPRW8W8IDS+KVmHq2PcVaSgDhgh7j2H/1y/HwIvsNE5ujAsTGsdsjuoyWxIVp
-PS8Enryba5o=
-=oGlg
+iQIVAwUBVD2dSn++6N86nkqlAQgvgA//c62Zz4fqe4AH1oKFnQ/FCtLH5o5x0geM
+/QjkP5rRNbzhvQhjO5IJkibA+vRl5sqx0ri7F86dufGgPXUcq+NZ7yZMjU23fluh
+XhCa8LRRYBjjuxYqX0m8TCQTI2EjwHiGfTu9TucuIxkrCIBwQFYRyim9ZdULjDXU
+5ufns9ZxOpDi5bB+TLXKuuqd1ocQSwbDUcsy0KHXuNvJwDnDfTvND01xx7Uhhh/3
+EIuDphxJ15541oRTHFpsWrLUy4+FyrV+pjHnzdNGlSe/fjbVYnDFK2lKZkOD1BFw
+7EwQMgfxIceB+IpbBkwunUcSeeFD2nLzX0cmXNA90HXwlpVRaWH4S3an4qUWBroP
+hHTFhYD++uUt+yWEF4MHDHfDLG4j420E/ICFfY9/0GcBM+yE3HuBz8F+il+LibEp
+XTuu0a4kMSnRMw0JLi6Zhase8Lvwb1e2nLihp71rzlEEvpMuGU7QrNC4acLqVJrC
+g3M6oPUO5zP2Sr0Z/g4ncbeD1YLiTcyEzz2Un9AmsNSJooP2Wgr5bTkmRoG8Mjeo
+MUHzMsXduwufCMRI4nvc2/cflWOXGFmoNJR49eHr/3tI7V2+Vcclbxi5es/ZIZTi
+Z1c2nvGSphZ6QWv9bx5vv0Alccty27wmhdOotPEoPOVyVrAvXVV6urzYFKflTx9A
+9CqPcY9Oyao=
+=TVpf
 -----END PGP SIGNATURE-----

@@ -1,0 +1,97 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Test-RDF
+Upstream-Contact: Kjetil Kjernsmo <kjetilk@cpan.org>
+Source: https://metacpan.org/module/Test::RDF
+
+Files: CREDITS
+ Changes
+ LICENSE
+ MANIFEST
+ MANIFEST.SKIP
+ META.ttl
+ META.yml
+ Makefile.PL
+ README
+ SIGNATURE
+ Test-RDF-1.16.tar.gz
+ meta/changes.ttl
+ meta/makefile.ttl
+ meta/people.ttl
+ meta/project.ttl
+ pm_to_blib
+ t/00-load.t
+ t/are_subgraphs.t
+ t/has_literal.t
+ t/has_uri.t
+ t/hasnt_literal.t
+ t/is_rdf.t
+ t/is_valid_rdf.t
+ t/isomorph_graphs.t
+ t/pattern_fail.t
+ t/pattern_ok.t
+Copyright: Unknown
+License: Unknown
+
+Files: inc/Module/Install.pm
+ inc/Module/Install/Include.pm
+ inc/Module/Install/Metadata.pm
+Copyright: Copyright 2002 - 2012 Brian Ingerson, Audrey Tang and Adam Kennedy.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: inc/Module/Install/Contributors.pm
+Copyright: This software is copyright (c) 2013 by Toby Inkster.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: inc/Module/Install/Makefile.pm
+Copyright: Copyright 2002, 2003, 2004 Audrey Tang and Brian Ingerson.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: COPYRIGHT
+Copyright: None
+License: public-domain
+Comment: This file! Automatically generated.
+
+Files: inc/Module/Install/TrustMetaYml.pm
+Copyright: This software is copyright (c) 2011 by Toby Inkster.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: inc/Module/Install/Package.pm
+Copyright: Copyright (c) 2011. Ingy doet Net.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: lib/Test/RDF.pm
+Copyright: Copyright 2010 ABC Startsiden AS.
+ Copyright 2010, 2011, 2012, 2013 Kjetil Kjernsmo.
+License: GPL-1.0
+
+Files: inc/Module/Install/Base.pm
+Copyright: Copyright 2003, 2004 by Audrey Tang <autrijus@autrijus.org>.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: inc/Module/Package/Dist/RDF.pm
+Copyright: This software is copyright (c) 2011-2012 by Toby Inkster.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: inc/Scalar/Util.pm
+Copyright: Copyright (c) 1997-2007 Graham Barr <gbarr@pobox.com>. All rights reserved.
+ Copyright (c) 1999 Tuomas J. Lukka <lukka@iki.fi>. All rights reserved.
+License: GPL-1.0+ or Artistic-1.0
+
+Files: inc/YAML/Tiny.pm
+Copyright: Copyright 2006 - 2012 Adam Kennedy.
+License: GPL-1.0+ or Artistic-1.0
+
+License: Artistic-1.0
+ This software is Copyright (c) 2013 by the copyright holder(s).
+ 
+ This is free software, licensed under:
+ 
+   The Artistic License 1.0
+
+License: GPL-1.0
+ This software is Copyright (c) 2013 by the copyright holder(s).
+ 
+ This is free software, licensed under:
+ 
+   The GNU General Public License, Version 1, February 1989
+
