@@ -2,7 +2,7 @@ NAME
     Test::RDF - Test RDF data for content, validity and equality, etc.
 
 VERSION
-    Version 1.16
+    Version 1.19
 
 SYNOPSIS
      use Test::RDF;
@@ -26,8 +26,8 @@ DESCRIPTION
     This Perl module, Test::RDF, provides tools for testing code which deals
     with RDF. It can test RDF for validity, check if two RDF graphs are the
     same, or subgraphs of each other, if a URI is or is not in a dataset, if
-    it has certain subjects, predicates, objects or literals. It can also
-    test to see if a full pattern is present or absent.
+    it has certain subjects, predicates, objects or literals. It can also test
+    to see if a full pattern is present or absent.
 
 EXPORT
   is_valid_rdf
@@ -40,29 +40,27 @@ EXPORT
     Use to check if the input RDF::Trine::Models have isomorphic graphs.
 
   are_subgraphs
-    Use to check if the first RDF::Trine::Models is a subgraph of the
-    second.
+    Use to check if the first RDF::Trine::Models is a subgraph of the second.
 
   has_subject
     Check if the string URI passed as first argument is a subject in any of
     the statements given in the model given as second argument.
 
   has_predicate
-    Check if the string URI passed as first argument is a predicate in any
-    of the statements given in the model given as second argument.
-
-  has_object_uri
-    Check if the string URI passed as first argument is a object in any of
+    Check if the string URI passed as first argument is a predicate in any of
     the statements given in the model given as second argument.
 
+  has_object_uri
+    Check if the string URI passed as first argument is a object in any of the
+    statements given in the model given as second argument.
+
   has_literal
-    Check if the string passed as first argument, with corresponding
-    optional language and datatype as second and third respectively, is a
-    literal in any of the statements given in the model given as fourth
-    argument.
+    Check if the string passed as first argument, with corresponding optional
+    language and datatype as second and third respectively, is a literal in
+    any of the statements given in the model given as fourth argument.
 
     language and datatype may not occur in the same statement, so the test
-    fails if they are both set. If none are used, use "undef", like e.g.
+    fails if they are both set. If none are used, use `undef`, like e.g.
 
      has_literal('A test', undef, undef, $model, 'Simple literal');
 
@@ -75,30 +73,30 @@ EXPORT
      has_literal('This is a Another test', 'en', undef, $model, 'Language literal');
 
   hasnt_literal
-    This is like the above, only the opposite: It checks if a literal
-    doesn't exist. Like the above, the test will fail if the literal is
-    invalid, however.
+    This is like the above, only the opposite: It checks if a literal doesn't
+    exist. Like the above, the test will fail if the literal is invalid,
+    however.
 
   has_uri
-    Check if the string URI passed as first argument is present in any of
-    the statements given in the model given as second argument.
+    Check if the string URI passed as first argument is present in any of the
+    statements given in the model given as second argument.
 
   hasnt_uri
-    Check if the string URI passed as first argument is not present in any
-    of the statements given in the model given as second argument.
+    Check if the string URI passed as first argument is not present in any of
+    the statements given in the model given as second argument.
 
   pattern_target
     Tests that the object passed as its parameter is an RDF::Trine::Model or
-    RDF::Trine::Store. That is, tests that it is a valid thing to match
-    basic graph patterns against.
+    RDF::Trine::Store. That is, tests that it is a valid thing to match basic
+    graph patterns against.
 
-    Additionally, this test establishes the target for future "pattern_ok"
+    Additionally, this test establishes the target for future `pattern_ok`
     tests.
 
   pattern_ok
     Tests that the pattern passed matches against the target established by
-    "pattern_target". The pattern may be passed as an RDF::Trine::Pattern,
-    or a list of RDF::Trine::Statement objects.
+    `pattern_target`. The pattern may be passed as an RDF::Trine::Pattern, or
+    a list of RDF::Trine::Statement objects.
 
      use Test::RDF;
      use RDF::Trine qw[iri literal blank variable statement];
@@ -120,7 +118,7 @@ EXPORT
        "Data contains Kjetil's details."
        );
 
-    Note: "pattern_target" must have been tested before any "pattern_ok"
+    Note: `pattern_target` must have been tested before any `pattern_ok`
     tests.
 
   pattern_fail
@@ -132,7 +130,7 @@ NOTE
     <http://en.wikipedia.org/wiki/Graph_isomorphism_problem>.
 
 AUTHOR
-    Kjetil Kjernsmo, "<kjetilk at cpan.org>"
+    Kjetil Kjernsmo, `<kjetilk at cpan.org>`
 
 BUGS
     Please report any bugs using github
@@ -143,8 +141,8 @@ SUPPORT
 
         perldoc Test::RDF
 
-    You may find the Perl and RDF community website
-    <http://www.perlrdf.org/> useful.
+    You may find the Perl and RDF community website <http://www.perlrdf.org/>
+    useful.
 
     You can also look for information at:
 
@@ -172,12 +170,12 @@ ACKNOWLEDGEMENTS
     Toby Inkster has submitted the pattern_* functions.
 
 LICENSE AND COPYRIGHT
-    Copyright 2010 ABC Startsiden AS. Copyright 2010, 2011, 2012, 2013
+    Copyright 2010 ABC Startsiden AS. Copyright 2010, 2011, 2012, 2013, 2014
     Kjetil Kjernsmo.
 
     This program is free software; you can redistribute it and/or modify it
-    under the terms of either: the GNU General Public License as published
-    by the Free Software Foundation; or the Artistic License.
+    under the terms of either: the GNU General Public License as published by
+    the Free Software Foundation; or the Artistic License.
 
     See http://dev.perl.org/licenses/ for more information.
 
