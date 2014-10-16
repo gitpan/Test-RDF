@@ -25,7 +25,7 @@ optional_features: {}
 provides:
   Test::RDF:
     file: lib/Test/RDF.pm
-    version: '1.19'
+    version: '1.20'
 requires:
   RDF::Trine: '0.134'
   Scalar::Util: '1.24'
@@ -38,6 +38,6 @@ resources:
   homepage: https://metacpan.org/module/Test::RDF
   license: http://dev.perl.org/licenses/
   repository: https://github.com/kjetilk/Test-RDF/
-version: '1.19'
+version: '1.20'
 x_contributors:
   - 'Toby Inkster'

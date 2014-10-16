@@ -28,7 +28,7 @@ my $meta = {
                         },
                         test => { requires => { "Test::Tester" => 0 } },
                       },
-  "provides"       => { "Test::RDF" => { file => "lib/Test/RDF.pm", version => 1.19 } },
+  "provides"       => { "Test::RDF" => { file => "lib/Test/RDF.pm", version => "1.20" } },
   "release_status" => "stable",
   "resources"      => {
                         bugtracker   => { web => "https://github.com/kjetilk/Test-RDF/issues" },
@@ -38,7 +38,7 @@ my $meta = {
                         x_identifier => "http://purl.org/NET/cpan-uri/dist/Test-RDF/project",
                         x_IRC        => "irc://irc.perl.org/#perlrdf",
                       },
-  "version"        => 1.19,
+  "version"        => "1.20",
   "x_contributors" => ["Toby Inkster"],
 };
 

@@ -25,19 +25,6 @@ Files: t/00-load.t
 Copyright: Copyright 2013 Kjetil Kjernsmo.
 License: GPL-1.0+ or Artistic-1.0
 
-Files: README
- README.pod
- lib/Test/RDF.pm
-Copyright: Copyright 2010 ABC Startsiden AS.
- Copyright 2010, 2011, 2012, 2013, 2014 Kjetil Kjernsmo.
-License: GPL-1.0
-
-Files: INSTALL
- LICENSE
- MANIFEST.SKIP
-Copyright: Unknown
-License: Unknown
-
 Files: COPYRIGHT
  CREDITS
  SIGNATURE
@@ -48,6 +35,17 @@ Files: t/pattern_fail.t
  t/pattern_ok.t
 Copyright: Copyright 2012 Kjetil Kjernsmo.
 License: GPL-1.0+ or Artistic-1.0
+
+Files: README
+ lib/Test/RDF.pm
+Copyright: Copyright 2010 ABC Startsiden AS.
+ Copyright 2010, 2011, 2012, 2013, 2014 Kjetil Kjernsmo.
+License: GPL-1.0
+
+Files: INSTALL
+ LICENSE
+Copyright: Unknown
+License: Unknown
 
 Files: Makefile.PL
 Copyright: Copyright 2013 Toby Inkster.

@@ -47,7 +47,7 @@
    "provides" : {
       "Test::RDF" : {
          "file" : "lib/Test/RDF.pm",
-         "version" : "1.19"
+         "version" : "1.20"
       }
    },
    "release_status" : "stable",
@@ -66,7 +66,7 @@
       "x_IRC" : "irc://irc.perl.org/#perlrdf",
       "x_identifier" : "http://purl.org/NET/cpan-uri/dist/Test-RDF/project"
    },
-   "version" : "1.19",
+   "version" : "1.20",
    "x_contributors" : [
       "Toby Inkster"
    ]

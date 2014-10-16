@@ -4,12 +4,10 @@ Changes
 INSTALL
 LICENSE
 MANIFEST
-MANIFEST.SKIP
 META.json
 META.yml
 Makefile.PL
 README
-README.pod
 SIGNATURE
 dist.ini
 doap.ttl
